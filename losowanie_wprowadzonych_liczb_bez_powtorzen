@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+ 
+using namespace std;
+ 
+int main()
+{
+  srand(time(NULL));
+  int tablica[10];
+  int licznik = 0;
+  int wynik = 0;
+  do
+  {
+      tablica[licznik] = (rand() % 7 ) + 4;
+      cout << tablica[licznik] << ", ";
+      wynik = wynik + tablica[licznik];
+      licznik++;
+  } while ( licznik < 10);
+ 
+    cout << endl;
+    cout << wynik << endl;
+ 
+    return 0;
+}
+ 
