@@ -1,0 +1,92 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <conio.h>
+
+using namespace std;
+
+void rollDamage(int dice, bool crit)
+{
+    int roll = 0;
+    if(crit)
+    {
+        int x = 0, i = 0;
+        do
+        {
+            x = (rand() % dice) + 1;
+            cout << "Losujesz: " << x << endl;
+            roll += x;
+            i++;
+        } while (i < 2);
+        cout << "Trafiasz za " << roll << "!" << endl;
+    }
+    else
+    {
+        roll = (rand() % dice) + 1;
+        cout << "Trafiasz za " << roll << "!" << endl;
+    }
+
+}
+
+void rollDice(bool crit)
+{
+    int dice;
+    cout << "Wybierz kosc: \n(1)k4  \n(2)k6  \n(3)k8  \n(4)k10  \n(5)k12" << endl;
+    cin >> dice;
+
+    switch (dice)
+    {
+        case 1:
+            rollDamage(4, crit);
+            break;
+        case 2:
+            rollDamage(6, crit);
+            break;
+        case 3:
+            rollDamage(8, crit);
+            break;
+        case 4:
+            rollDamage(10, crit);
+            break;
+        case 5:
+            rollDamage(12, crit);
+            break;
+        default:
+            cout << "Wybierz poprawna kosc!" << endl;
+            break;
+    }
+
+}
+
+int main()
+{
+    srand(time(NULL));
+    while(true){
+        int chance = (rand() % 20) + 1;
+        cout << "Rzucasz na trafienie!" << endl;
+        cout << chance << endl;
+
+        if (chance == 1 )
+        {
+            cout << "Nie trafiasz!" << endl;
+            cout << endl;
+        }
+        else if (chance == 20)
+        {
+            cout << "Trafienie krytyczne! Za ile?" << endl;
+            cout << endl;
+            rollDice(true);
+        }
+        else
+        {
+            cout << "Trafiasz! Za ile?" << endl;
+            cout << endl;
+            rollDice(false);
+        }
+        cout << "Nacisnij dowolny klawisz, aby wylosowac ponownie na trafienie" << endl;
+        cout << endl;
+        getch();
+    }
+
+    return 0;
+}
