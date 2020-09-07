@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+void wypiszTablice(int tablica[], int ile)
+{
+    for(int indeks = 0; indeks < ile; indeks++)
+        cout << tablica[indeks] << endl;
+}
+
+int wypelnijTablice(int tablica[], int ile)
+{
+
+    for(int indeks = 0; indeks < ile; indeks++)
+    cout << "Indeks " << (indeks + 1) << " ma wartosc " << (1 + indeks * 5) << endl;
+
+}
+
+int main()
+{
+    int tablica[20];
+    wypelnijTablice(tablica, 20);
+
+    return 0;
+}
